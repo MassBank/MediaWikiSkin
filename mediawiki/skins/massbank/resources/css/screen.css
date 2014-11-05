@@ -1,0 +1,297 @@
+/**
+ * Basic styling for the Example skin.
+ */
+
+/* Page layout */
+
+html,
+body {
+	font-family: sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+#mw-top {
+	width: 100%;
+}
+
+#mw-wrapper {
+	position: relative;
+}
+
+.mw-body-wrapper {
+	width: 70em;
+	margin: 0 auto;
+}
+
+.mw-body {
+	width: 48em;
+	padding: 1em;
+	padding-top: 6em;
+	float: right;
+}
+
+#p-logo,
+#mw-navigation {
+	width: 16em;
+	padding-left: 1em;
+	padding-top: 1em;
+	clear: left;
+	float: left;
+}
+
+#p-logo {
+	text-align: center;
+}
+
+#p-logo img {
+	padding: 15px 0;
+	width: 100px;
+}
+
+#mw-top {
+	background-color: #B3C5D1 !important;
+}
+
+#mw-top-sub {
+	background-color: #7D838F !important;
+}
+
+#top-submenu-container ul.h-menu {
+	font-size: 11px;
+}
+
+#top-submenu-container ul.h-menu li {
+    display: inline-block;
+    line-height: 30px;
+}
+
+#top-submenu-container ul.h-menu li:HOVER {
+	background-color: #504C58 !important;
+}
+
+#top-submenu-container ul.h-menu li a {
+	line-height: 30px;
+    padding: 9px 15px !important;
+}
+
+#top-submenu-container ul.h-menu li ul {
+	background-color: #7D838F !important;
+	left: 0;
+    top: 100%;
+}
+
+#top-submenu-container ul.h-menu li ul li {
+	display: block;
+}
+
+#top-submenu-container ul.h-menu,
+#top-submenu-container ul.h-menu li ul {
+	background-color: inherit;
+    border: medium none;
+}
+
+#top-submenu-container ul.h-menu li a.dropdown-menu-title:after {
+	border-color: #ccc transparent;
+    border-width: 5px 5px 0;
+}
+
+/* Search form and personal menu in top-right corner */
+
+#p-search {
+	position: absolute;
+	top: 1em;
+	right: 1em;
+	width: 46em;
+	text-align: right;
+}
+
+/* general menu style */
+
+#mw-navigation #p-general {
+	background: none repeat scroll 0 0 transparent;
+    padding: 0;
+}
+
+#p-general h3 {
+	display: none;
+}
+
+#p-general ul li {
+	line-height: 60px;
+}
+
+#p-general #n-database-service a {
+	background-position: 0 0;
+}
+
+#p-general #n-database-service a:HOVER {
+	background-position: -225px 0;
+}
+
+#p-general #n-statistics a {
+	background-position: 0 -60px;
+}
+
+#p-general #n-statistics a:HOVER {
+	background-position: -225px -60px;
+}
+
+#p-general #n-publications a {
+	background-position: 0 -120px;
+}
+
+#p-general #n-publications a:HOVER {
+	background-position: -225px -120px;
+}
+
+#p-general #n-download a {
+	background-position: 0 -180px;
+}
+
+#p-general #n-download a:HOVER {
+	background-position: -225px -180px;
+}
+
+#p-general #n-manuals a {
+	background-position: 0 -240px;
+}
+
+#p-general #n-manuals a:HOVER {
+	background-position: -225px -240px;
+}
+
+#p-general #n-about-MassBank a {
+	background-position: 0 -300px;
+}
+
+#p-general #n-about-MassBank a:HOVER {
+	background-position: -225px -300px;
+}
+
+#p-general #n-contact a {
+	background-position: 0 -360px;
+}
+
+#p-general #n-contact a:HOVER {
+	background-position: -225px -360px;
+}
+
+#p-general #n-consortium-members a {
+	background-position: 0 -420px;
+}
+
+#p-general #n-consortium-members a:HOVER {
+	background-position: -225px -420px;
+}
+
+#p-general ul li a {
+	background: url("../images/en/navi_global_en.gif") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+	color: transparent;
+    display: block;
+    width: 225px;
+}
+
+/* Footer */
+
+#mw-footer {
+	clear: both;
+	border-top: 1px solid black;
+	margin-top: 1em;
+	padding: 1em;
+}
+
+#mw-footer ul li {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+/* Hide some headings, but keep them accessible for screen-readers */
+
+#mw-navigation h2,
+#p-search h3,
+#p-personal h3 {
+	position: absolute;
+	top: -9999px;
+}
+
+#mw-navigation .mw-portlet[role="navigation"] {
+	background: none repeat scroll 0 0 #ddd;
+	margin: 1px 0 0;
+	padding: 0 15px 5px;
+}
+
+#mw-navigation .mw-portlet[role="navigation"] h3 {
+	font-weight: normal;
+}
+
+#mw-navigation .mw-portlet[role="navigation"] ul {
+	font-size: 0.9em;
+}
+
+#header_top_container {
+    background-image: url("../images/bg_top.jpg");
+	background-position: center top;
+	background-repeat: no-repeat;
+	height: 130px;
+	width: 100%;
+}
+
+/* dropdown menu */
+ul.mw-dropdown-portlet,
+ul.mw-dropdown-portlet li ul {
+	background-color: #333333;
+	border: 2px solid #333333;
+	color: #ffffff;
+}
+
+ul.mw-dropdown-portlet li {
+    position: relative;
+}
+
+ul.mw-dropdown-portlet li:hover {
+	background-color: #000;
+}
+
+ul.mw-dropdown-portlet li a {
+	color: inherit;
+	cursor: pointer;
+	letter-spacing: 0.01em;
+	line-height: 2.2rem;
+	padding: 9px 15px !important;
+	text-decoration: none;
+}
+
+ul.mw-dropdown-portlet li a.dropdown-menu-title:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #ccc;
+    margin-top: 1em;
+    margin-right: 5px;
+}
+
+ul.mw-dropdown-portlet li:hover a.dropdown-menu-title:after {
+	border-left-color: #fff;
+}
+
+ul.mw-dropdown-portlet li ul {
+	display: none;
+	left: 100%;
+	margin-left: -1px;
+	margin-top: -1px;
+	position: absolute;
+	top: 0;
+	width: 150px;
+	color: inherit;
+	z-index: 1000;
+}
+
+ul.mw-dropdown-portlet li:hover ul {
+    display: block;
+}
