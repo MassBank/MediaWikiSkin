@@ -10,7 +10,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 $wgExtensionCredits['other'][] = array(
     'name' => 'MassBankSidebar',
 	'version' => '0.4.1',
-    'author' => 'Wolfgang St&ouml;ttinger',
+    'author' => '',
     'description' => 'Sidebar can be displayed as a Menu',
 	'url'     => 'http://www.mediawiki.org/wiki/Extension:CSS_MassBankSidebar',
 );
