@@ -9,7 +9,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
  
 $wgExtensionCredits['other'][] = array(
     'name' => 'MassBankSidebar',
-	'version' => '0.4.1',
+	'version' => '0.0.1',
     'author' => '',
     'description' => 'Sidebar can be displayed as a Menu',
 	'url'     => 'http://www.mediawiki.org/wiki/Extension:CSS_MassBankSidebar',
@@ -183,5 +183,8 @@ function fnBuildList($lines,&$i, $level, $opt) {
 }
 
 function fnCssClassByLine($line) {
-	return (str_replace(" ", "-", trim(explode(":", explode("|", $line)[0])[1])));
+	$a = explode("|", $line);
+	$b = explode(":", $a[0]);
+	return str_replace(" ", "-", trim($b[1]));
+// 	return (str_replace(" ", "-", trim(explode(":", explode("|", $line)[0])[1])));
 }
