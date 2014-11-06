@@ -300,15 +300,21 @@ class MassBankTemplate extends BaseTemplate {
 			</div>
 
 			<div id="mw-footer">
-				<?php foreach ( $this->getFooterLinks() as $category => $links ) { ?>
-					<ul role="contentinfo">
+				<?php 
+					foreach ( $this->getFooterLinks() as $category => $links ) { 
+						if ($category == 'places') {
+				?>
+					<ul role="contentinfo <?php echo $category;?>">
 						<?php foreach ( $links as $key ) { ?>
-							<li><?php $this->html( $key ) ?></li>
+							<li <?php echo $key;?>><?php $this->html( $key ) ?></li>
 						<?php } ?>
 					</ul>
-				<?php } ?>
+				<?php 
+						}
+					} 
+				?>
 
-				<ul role="contentinfo">
+				<ul role="contentinfo" style="display:none;">
 					<?php foreach ( $this->getFooterIcons( 'icononly' ) as $blockName => $footerIcons ) { ?>
 						<li>
 							<?php
@@ -356,4 +362,6 @@ class MassBankTemplate extends BaseTemplate {
 	function getSidebarGeneral( $options = array() ) {
 		$sidebar = $this->data['sidebar'];
 	}
+	
+	
 }
