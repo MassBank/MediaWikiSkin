@@ -3,8 +3,15 @@ MediaWikiSkin
 
 customized media wiki skin for new generation of http://www.massbank.jp/
 
-MassBank Skin
-=============
-Add following line for initialize massbank skin to mediawiki.
+###### Apply MassBank skin as MediaWikiSkin
 
-require_once "$IP/skins/massbank/MassBank.php";
+1. copy all the files and folders related to **massbank** skin into **/skins** directory.
+2. Add following line to **LocalSetting.php** file for initialize massbank skin to mediawiki.
+
+> require_once "$IP/skins/massbank/MassBank.php";
+
+###### Setting the MassBank as default skin
+
+change the **$wgDefaultSkin** in **LocalSettings.php** to the lowercase skin name as specified in the skin file.
+
+> $wgDefaultSkin = 'massbank';
