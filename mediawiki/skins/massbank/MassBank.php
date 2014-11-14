@@ -47,7 +47,7 @@ $wgResourceModules['skins.massbank.js'] = array(
 
 $wgResourceModules['skins.massbank.css'] = array(
 	'styles' => array(
-		'massbank/resources/css/massbanksidebar/massbanksidebar.css' => array( 'media' => 'screen' ),
+		'massbank/resources/css/massbank/massbank.css' => array( 'media' => 'screen' ),
 		'massbank/resources/css/massbank-screen.css' => array( 'media' => 'screen' ),
 		'massbank/resources/css/screen.css' => array( 'media' => 'screen' ),
 	),

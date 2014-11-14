@@ -13,10 +13,13 @@ body {
 
 #mw-top {
 	width: 100%;
+	position: absolute;
+    top: 0;
 }
 
 #mw-wrapper {
 	position: relative;
+	margin-top: 15px;
 }
 
 .mw-body-wrapper {
@@ -26,16 +29,14 @@ body {
 
 .mw-body {
 	width: 48em;
-	padding: 1em;
-	padding-top: 6em;
+	padding: 6em 1em 1em 0;
 	float: right;
 }
 
 #p-logo,
 #mw-navigation {
 	width: 16em;
-	padding-left: 1em;
-	padding-top: 1em;
+	padding: 1em;
 	clear: left;
 	float: left;
 }
@@ -49,16 +50,17 @@ body {
 	width: 100px;
 }
 
-#mw-top {
-	background-color: #B3C5D1 !important;
-}
-
 #mw-top-sub {
 	background-color: #7D838F !important;
 }
 
+#mw-top-sub li a {
+	color: #FFFFFF;
+}
+
 #top-submenu-container ul.h-menu {
-	font-size: 11px;
+	font-size: 10.5pt;
+	text-transform: lowercase;
 }
 
 #top-submenu-container ul.h-menu li {
@@ -117,11 +119,25 @@ body {
 	display: none;
 }
 
+/* header */
+#p-home-menu {
+	height: 70px;
+	margin-left: 15px;
+	width: 255px;
+}
+#p-home-menu a {
+	display: inline-block;
+	height: 100%;
+	width: 100%;
+	text-decoration: none;
+}
+
 /* Footer */
 
 #mw-footer {
 	clear: both;
-	border-top: 1px solid black;
+	font-size: 11px;
+	border-top: 1px solid #ddd;
 	margin-top: 1em;
 	padding: 1em;
 }
@@ -129,6 +145,11 @@ body {
 #mw-footer ul li {
 	display: inline-block;
 	margin-right: 1em;
+}
+
+#mw-footer #copyright {
+	color: #666;
+    font-style: italic;
 }
 
 /* Hide some headings, but keep them accessible for screen-readers */
@@ -158,7 +179,7 @@ body {
     background-image: url("../images/bg_top.jpg");
 	background-position: center top;
 	background-repeat: no-repeat;
-	height: 130px;
+	height: 125px;
 	width: 100%;
 }
 

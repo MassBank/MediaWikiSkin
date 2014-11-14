@@ -41,6 +41,7 @@ class SkinMassBank extends SkinTemplate {
 			'mediawiki.skinning.interface', 'skins.massbank.css'
 		) );
 	}
+
 }
 
 /**
@@ -162,28 +163,24 @@ class MassBankTemplate extends BaseTemplate {
 	 */
 	public function execute() {
 		$this->html( 'headelement' ) ?>
+		
+		<div id="header_top_container" class="mw-body-wrapper"></div>
+		
 		<div id="mw-top">
 			<div id="top-menu-container" class="navigation-bar mw-body-wrapper">
 				<?php
 					$this->outputPortletTopMenu( array(
-						'id' => 'p-home-menu',
-						'cssClass' => 'place-left',
-						'content' => array ( 
-							'main' => array (
-								'id' => 'mw-nav-home',
-								'text' => $this->data['sitename'], 
-								'href' => htmlspecialchars( $this->data['nav_urls']['mainpage']['href'] )
-							)
-						),
-					) );
-				?>
-				<?php
-					$this->outputPortletTopMenu( array(
 						'id' => 'p-function-menus',
 						'cssClass' => 'place-right',
-						'content' => $this->getFunctionMenus()
+						'content' => $this->data['mbmenulinks']['top']['content']
 					) );
 				?>
+				<br clear="all"/>
+			</div>
+			<div class="mw-body-wrapper">
+				<div id="p-home-menu" class="mw-portlet place-left">
+					<a href="<?php echo htmlspecialchars( $this->data['nav_urls']['mainpage']['href'] );?>">&nbsp;</a>
+				</div>
 				<br clear="all"/>
 			</div>
 		</div>
@@ -234,7 +231,7 @@ class MassBankTemplate extends BaseTemplate {
 				<br clear="all"/>
 			</div>
 		</div>
-		<div id="header_top_container" class="mw-body-wrapper"></div>
+		
 		<div id="mw-wrapper" class="mw-body-wrapper">
 
 			<div class="mw-body" role="main">
@@ -273,8 +270,6 @@ class MassBankTemplate extends BaseTemplate {
 
 
 			<div id="mw-navigation">
-				<h2><?php $this->msg( 'navigation-heading' ) ?></h2>
-
 				<form
 					action="<?php $this->text( 'wgScript' ) ?>"
 					role="search"
@@ -301,10 +296,32 @@ class MassBankTemplate extends BaseTemplate {
 
 			<div id="mw-footer">
 				<?php 
+// 				print_r($this->data['sidebar']);
+// 				if (isset($this->data['sidebar']['SEARCH'])) {
+// 					echo "search set";
+// 				} else {
+// 					echo "search not set";
+// 				}
+// 				echo $this->getSkin()->getTitle()->getPageViewLanguage()->getHtmlCode()
+// 				print_r($this->data['lang'])
+// 				print_r($this);
+// 				print_r($this->getContext()->getLanguage());
+				?>
+				<div>
+					<div id="copyright" class="place-left">
+						Copyright © MassBank Project
+					</div>
+					<div class="place-right">
+						<?php echo $this->data['mbmenulinks']['footer']['content']; ?>
+					</div>
+					<br clear="all"/>
+				</div>
+			
+				<?php 
 					foreach ( $this->getFooterLinks() as $category => $links ) { 
 						if ($category == 'places') {
 				?>
-					<ul role="contentinfo <?php echo $category;?>">
+					<ul role="contentinfo <?php echo $category;?>" style="display:none;">
 						<?php foreach ( $links as $key ) { ?>
 							<li <?php echo $key;?>><?php $this->html( $key ) ?></li>
 						<?php } ?>
@@ -333,35 +350,5 @@ class MassBankTemplate extends BaseTemplate {
 		<?php
 		
 	}
-	
-	function getFunctionMenus() {
-		return array (
-					'sitemap' => array (
-							'id' => 'mw-nav-sitemap',
-							'text' => 'Site Map',
-							'href' => 'page:sitemap'
-					),
-					'regulation' => array (
-							'id' => 'mw-nav-regulation',
-							'text' => 'Use Restrictions',
-							'href' => 'page:regulation'
-					),
-					'copyright' => array (
-							'id' => 'mw-nav-copyright',
-							'text' => 'Copyright',
-							'href' => 'page:copyright'
-					),
-					'language' => array (
-							'id' => 'mw-nav-language',
-							'text' => (true ? 'English Site' : 'Japanese Site'),
-							'href' => (true ? 'English' : 'Japanese')
-					)
-			);
-	}
-	
-	function getSidebarGeneral( $options = array() ) {
-		$sidebar = $this->data['sidebar'];
-	}
-	
 	
 }

@@ -1,0 +1,296 @@
+/**
+ * layout style
+ */
+ 
+/* top & footer menu common */
+/** 
+ *transform effect 
+.massbank-top-menu .menu-item a,
+.massbank-footer-menu .menu-item a {
+	position: relative;
+}
+
+.massbank-top-menu .menu-item a:after,
+.massbank-footer-menu .menu-item a:after {
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background-color: #98004a;
+  content: "";
+  transition: width 0.2s;
+}
+
+.massbank-top-menu .menu-item a:HOVER:after,
+.massbank-footer-menu .menu-item a:HOVER:after {
+	width: 100%;
+}
+ **/
+
+/* top menu */
+.massbank-top-menu li {
+	display: inline-block;
+}
+
+.massbank-top-menu {
+	margin-right: 5px;
+	margin-top: 5px;
+}
+
+.massbank-top-menu .menu-item {
+	line-height: 25px;
+	border-right: 1px solid #ccc;
+}
+
+.massbank-top-menu .menu-item:last-child {
+	border-right: medium none;
+}
+
+.massbank-top-menu .menu-item a {
+	color: #7d838f;
+	font-size: 10.5pt;
+	font-weight: 400;
+	padding: 5px 15px;
+}
+
+.massbank-top-menu .menu-item a:HOVER {
+	color: #201a1a;
+}
+
+.massbank-top-menu .menu-item .menu-icon {
+	height: 24px;
+	vertical-align: top;
+	width: 24px;
+}
+
+/* bottom menu */
+.massbank-footer-menu .menu-item a {
+	color: #7d838f;
+	font-size: 10.5pt;
+}
+
+.massbank-footer-menu .menu-item a:HOVER {
+	color: #201a1a;
+}
+
+/* sidebar menu */
+/**
+ * sidebar menu common style
+ */
+.massbank-sidebar .menu-container .submenu-container {
+	border: 1px dotted #b0b2b9;
+	left: 224px;
+	position: absolute;
+	top: 0;
+	-moz-transition: height .2s;
+    -ms-transition: height .2s;
+    -o-transition: height .2s;
+    -webkit-transition: height .2s;
+    transition: height .2s;
+    height: 0;
+	opacity: 0;
+    visibility: hidden;
+	z-index: 1000;
+	overflow: hidden;
+}
+
+.massbank-sidebar .menu-item:HOVER .submenu-container {
+	opacity: 1;
+    visibility: visible;
+    height: 143px;
+}
+
+.massbank-sidebar .menu-item {
+	line-height: 60px;
+    position: relative;
+}
+
+.massbank-sidebar .submenu-item {
+    line-height: 35px;
+}
+
+.massbank-sidebar .menu-item em.menu-arrow {
+	border-color: transparent transparent transparent #ccc;
+}
+
+.massbank-sidebar .menu-item em {
+	border-color: transparent;
+	border-style: solid;
+	border-width: 10px 0 10px 10px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.massbank-sidebar .menu-item span {
+	display: inline-block;
+	padding-left: 45px;
+	white-space: nowrap;
+	width: 160px;
+}
+
+/**
+ * sidebar menu icon style
+ */
+
+.massbank-sidebar .menu-item .menu-icon {
+	height: 45px;
+	left: 0;
+	margin: 10px 0;
+	position: absolute;
+	vertical-align: middle;
+	width: 45px;
+}
+
+.massbank-sidebar .menu-item span.hidden {
+    display: none;
+}
+
+.massbank-sidebar .menu-item:HOVER .submenu-item a,
+.massbank-sidebar .menu-item a {
+	background: none repeat scroll 0 0 #f2f6ff;
+	color: #666666;
+    font-weight: bold;
+    border-color: #b0b2b9;
+	border-style: solid;
+	border-width: 1px 0;
+	display: block;
+	letter-spacing: 0.03em;
+	font-size: 11pt;
+}
+
+.massbank-sidebar .menu-item .submenu-item:HOVER a,
+.massbank-sidebar .menu-item:HOVER a {
+	background: none repeat scroll 0 0 #e5edff;
+}
+
+.massbank-sidebar .menu-container .submenu-container {
+	background: none repeat scroll 0 0 #f2f6ff;
+	border-color: #fff;
+	border-style: solid;
+	border-width: 0 5px;
+	left: 224px;
+}
+
+.massbank-sidebar .submenu-item,
+.massbank-sidebar .menu-item {
+	margin-bottom: -1px;
+}
+
+
+/**
+ * sidebar menu background style
+ */
+/*
+.massbank-sidebar .menu-item.menu-database a {
+	background-position: 0 0;
+}
+
+.massbank-sidebar .menu-item.menu-database a:HOVER {
+	background-position: -225px 0;
+}
+
+.massbank-sidebar .menu-item.menu-statistics a {
+	background-position: 0 -60px;
+}
+
+.massbank-sidebar .menu-item.menu-statistics a:HOVER {
+	background-position: -225px -60px;
+}
+
+.massbank-sidebar .menu-item.menu-publications a {
+	background-position: 0 -120px;
+}
+
+.massbank-sidebar .menu-item.menu-publications a:HOVER {
+	background-position: -225px -120px;
+}
+
+.massbank-sidebar .menu-item.menu-download a {
+	background-position: 0 -180px;
+}
+
+.massbank-sidebar .menu-item.menu-download a:HOVER {
+	background-position: -225px -180px;
+}
+
+.massbank-sidebar .menu-item.menu-manuals a {
+	background-position: 0 -240px;
+}
+
+.massbank-sidebar .menu-item.menu-manuals a:HOVER {
+	background-position: -225px -240px;
+}
+
+.massbank-sidebar .menu-item.menu-about a {
+	background-position: 0 -300px;
+}
+
+.massbank-sidebar .menu-item.menu-about a:HOVER {
+	background-position: -225px -300px;
+}
+
+.massbank-sidebar .menu-item.menu-contact a {
+	background-position: 0 -360px;
+}
+
+.massbank-sidebar .menu-item.menu-contact a:HOVER {
+	background-position: -225px -360px;
+}
+
+.massbank-sidebar .menu-item.menu-members a {
+	background-position: 0 -420px;
+}
+
+.massbank-sidebar .menu-item.menu-members a:HOVER {
+	background-position: -225px -420px;
+}
+
+.massbank-sidebar .menu-item a {
+	background: url("../../images/massbanksidebar/navi_global_en.gif") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+	color: transparent;
+	display: inline-block;
+    width: 225px;
+}
+
+.massbank-sidebar .menu-item .menu-icon {
+	display: none;
+}
+
+.massbank-sidebar .submenu-item.menu-specsearch a {
+	background-position: 0 0;
+}
+
+.massbank-sidebar .submenu-item.menu-specsearch a:HOVER {
+	background-position: -225px 0;
+}
+
+.massbank-sidebar .submenu-item.menu-quicksearch a {
+	background-position: 0 -35px;
+}
+
+.massbank-sidebar .submenu-item.menu-quicksearch a:HOVER {
+	background-position: -225px -35px;
+}
+
+.massbank-sidebar .submenu-item.menu-peaksearch a {
+	background-position: 0 -70px;
+}
+
+.massbank-sidebar .submenu-item.menu-peaksearch a:HOVER {
+	background-position: -225px -70px;
+}
+
+.massbank-sidebar .submenu-item.menu-subssearch a {
+	background-position: 0 -105px;
+}
+
+.massbank-sidebar .submenu-item.menu-subssearch a:HOVER {
+	background-position: -225px -105px;
+}
+
+.massbank-sidebar .submenu-item a {
+	background: url("../../images/massbanksidebar/navi_sub.gif") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+*/
