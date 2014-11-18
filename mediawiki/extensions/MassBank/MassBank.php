@@ -120,9 +120,13 @@ function fnBuildMenuItemList($lines, &$i, $level, $opt) {
 }
 
 function fnBuildMenuItemCssClass($line) {
+	$line = trim($line, "*");
 	$a = explode("|", $line);
 	$b = explode(":", $a[0]);
-	return str_replace(" ", "-", trim($b[1]));
+	if (sizeof($b) > 1) {
+		return str_replace(" ", "-", trim($b[1]));
+	}
+	return str_replace(" ", "-", trim($b[0]));
 }
 
 function fnBuildMenuItemIcon($line) {
@@ -146,7 +150,7 @@ function fnBuildMenuItemIcon($line) {
 }
 
 function fnBuildMenuItemWrapText($text) {
-	return "<span>" . $text . "</span>";
+	return "<span>" . trim($text) . "</span>";
 }
 
 function fnBuildMenuItemExpr($line) {

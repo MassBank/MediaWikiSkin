@@ -18,6 +18,7 @@ $wgExtensionCredits['other'][] = array(
 $wgHooks['SkinTemplateOutputPageBeforeExec'][] = 'fnMassBankMenu';
 
 function fnMassBankMenu($skin, &$tpl) {
+	global $wgContLang;
 
 	wfProfileIn( __METHOD__ );
 	
@@ -35,22 +36,42 @@ function fnMassBankMenu($skin, &$tpl) {
 			
 			if (strpos($line, '**') === 0 && $i > 0) {// entry in a deeper level:
 				$content = '
-					<div class="massbank-' . $key . '-menu" >
+					<div id="massbank-' . $settings['id'] . '-menu" class="' . $settings['type'] . '-menu-container" >
 						<ul class="menu-container">
 							' . fnBuildMenuItemList($lines, $i, 1) . '
 						</ul>
 					</div>
 				';
-				$tpl->data['mbmenulinks'][$key]['content'] = $content;
+				$tpl->data['mbmenulinks'][$settings['id']]['content'] = $content;
 				$i--;
 			}
 			else { // use Entry as Title:
-				$key = strtolower(trim($line, '* '));
+				$settings = fnBuildMenuSettings( $wgContLang->lc( trim($line, '* ') ) );
+// 				$key = $wgContLang->lc( trim($line, '* ') );
+// 				$key = strtolower(trim($line, '* '));
 			}	
 		}
 		
 	}
 	return true;
+}
+
+function fnBuildMenuSettings($line) {
+	$a = preg_match("/\{\{([^]]+)\}\}/", $line, $matches);
+	$result = array();
+	if ($a > 0) {
+		$args = explode(",", $matches[1]);
+		foreach ($args as &$arg) {
+			$arg = trim($arg);
+			if (strpos($arg, "#id") === 0) {
+				$result['id'] = trim(trim(trim(trim($arg, "#id")), ":"));
+			} else if (strpos($arg, "#type") === 0) {
+				$result['type'] = trim(trim(trim(trim($arg, "#type")), ":"));
+			}
+		}
+	}
+// 	print_r($result);
+	return $result;
 }
 
 ?>

@@ -50,6 +50,17 @@ class SkinMassBank extends SkinTemplate {
  * @ingroup Skins
  */
 class MassBankTemplate extends BaseTemplate {
+	
+	private function getMassBankMenuContent( $group = NULL ) {
+		global $wgContLang;
+	
+		if ( isset( $group ) ) {
+			$group = $wgContLang->lc( $group );
+			return $this->data['mbmenulinks'][$group]['content'];
+		}
+	
+		return '';
+	}
 	/**
 	 * Outputs a single horizontal portlet of any kind.
 	 */
@@ -172,7 +183,7 @@ class MassBankTemplate extends BaseTemplate {
 					$this->outputPortletTopMenu( array(
 						'id' => 'p-function-menus',
 						'cssClass' => 'place-right',
-						'content' => $this->data['mbmenulinks']['top']['content']
+						'content' => $this->getMassBankMenuContent('top')
 					) );
 				?>
 				<br clear="all"/>
@@ -288,6 +299,7 @@ class MassBankTemplate extends BaseTemplate {
 				<?php
 					foreach ( $this->getSidebar() as $boxName => $box ) {
 						if ($box['id'] == 'p-general') {
+							$box['cssClass'] = 'vertical-menu-container';
 							$this->outputPortlet( $box );
 						}
 					}
@@ -312,7 +324,10 @@ class MassBankTemplate extends BaseTemplate {
 						Copyright © MassBank Project
 					</div>
 					<div class="place-right">
-						<?php echo $this->data['mbmenulinks']['footer']['content']; ?>
+						<?php
+						echo $this->getMassBankMenuContent('footer'); 
+// 						echo $this->data['mbmenulinks']['footer']['content']; 
+						?>
 					</div>
 					<br clear="all"/>
 				</div>

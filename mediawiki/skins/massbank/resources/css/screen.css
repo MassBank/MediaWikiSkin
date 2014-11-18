@@ -142,11 +142,6 @@ body {
 	padding: 1em;
 }
 
-#mw-footer ul li {
-	display: inline-block;
-	margin-right: 1em;
-}
-
 #mw-footer #copyright {
 	color: #666;
     font-style: italic;

@@ -5,13 +5,13 @@
 /* top & footer menu common */
 /** 
  *transform effect 
-.massbank-top-menu .menu-item a,
-.massbank-footer-menu .menu-item a {
+#massbank-top-menu .menu-item a,
+#massbank-footer-menu .menu-item a {
 	position: relative;
 }
 
-.massbank-top-menu .menu-item a:after,
-.massbank-footer-menu .menu-item a:after {
+#massbank-top-menu .menu-item a:after,
+#massbank-footer-menu .menu-item a:after {
   display: block;
   position: absolute;
   left: 0;
@@ -23,56 +23,127 @@
   transition: width 0.2s;
 }
 
-.massbank-top-menu .menu-item a:HOVER:after,
-.massbank-footer-menu .menu-item a:HOVER:after {
+#massbank-top-menu .menu-item a:HOVER:after,
+#massbank-footer-menu .menu-item a:HOVER:after {
 	width: 100%;
 }
  **/
 
-/* top menu */
-.massbank-top-menu li {
-	display: inline-block;
+/**
+ * massbank menu style
+ */
+ 
+ /* menu common */
+.menu-container .menu-item {
+    display: inline-block;
+    position: relative;
+    left: 0;
 }
 
-.massbank-top-menu {
+.menu-container .menu-item em.menu-arrow {
+	border-color: #ccc transparent;
+    border-width: 0.5em 0.5em 0;
+}
+
+.menu-container .menu-item em {
+	border-color: transparent;
+    border-style: solid;
+    display: inline-block;
+    margin: 0 5px;
+    vertical-align: middle;
+}
+
+.menu-container .menu-item:HOVER .submenu-container {
+	opacity: 1;
+    visibility: visible;
+}
+
+.menu-container .menu-item .submenu-container {
+	left: 0;
+	position: absolute;
+	top: inherit;
+	border: 1px solid #ddd;
+	/*
+	-moz-transition: height .2s;
+    -ms-transition: height .2s;
+    -o-transition: height .2s;
+    -webkit-transition: height .2s;
+    transition: height .2s;
+    height: 0;
+    */
+	opacity: 0;
+    visibility: hidden;
+	z-index: 1000;
+	overflow: hidden;
+	width: 100%;
+	background: none repeat scroll 0 0 #fff;
+}
+
+/* vertical menu */
+.vertical-menu-container .menu-container .menu-item em.menu-arrow {
+	border-color: transparent transparent transparent #ccc;
+	border-width: 0.5em 0 0.5em 0.5em;
+}
+
+.vertical-menu-container .menu-container .menu-item {
+	display: block;
+}
+
+.vertical-menu-container .menu-container .menu-item .submenu-container {
+	top: 0;
+	left: 100%;
+}
+
+/* top menu */
+#massbank-top-menu {
 	margin-right: 5px;
 	margin-top: 5px;
 }
 
-.massbank-top-menu .menu-item {
+#massbank-top-menu .menu-item {
 	line-height: 25px;
 	border-right: 1px solid #ccc;
 }
 
-.massbank-top-menu .menu-item:last-child {
+#massbank-top-menu .menu-item:last-child {
 	border-right: medium none;
 }
 
-.massbank-top-menu .menu-item a {
+#massbank-top-menu .menu-item a {
 	color: #7d838f;
 	font-size: 10.5pt;
 	font-weight: 400;
 	padding: 5px 15px;
 }
 
-.massbank-top-menu .menu-item a:HOVER {
+#massbank-top-menu .menu-item a:HOVER {
 	color: #201a1a;
 }
 
-.massbank-top-menu .menu-item .menu-icon {
+#massbank-top-menu .menu-item .menu-icon {
 	height: 24px;
 	vertical-align: top;
 	width: 24px;
 }
 
 /* bottom menu */
-.massbank-footer-menu .menu-item a {
+#massbank-footer-menu .menu-item {
+	padding: 0 5px;
+}
+#massbank-footer-menu .menu-item:last-child {
+	padding-right: 0;
+}
+#massbank-footer-menu .menu-item a {
 	color: #7d838f;
 	font-size: 10.5pt;
 }
 
-.massbank-footer-menu .menu-item a:HOVER {
+#massbank-footer-menu .menu-item a:HOVER {
 	color: #201a1a;
+}
+
+#massbank-footer-menu .menu-container .submenu-container .submenu-item {
+	padding: 2px 5px;
 }
 
 /* sidebar menu */
@@ -81,25 +152,10 @@
  */
 .massbank-sidebar .menu-container .submenu-container {
 	border: 1px dotted #b0b2b9;
-	left: 224px;
-	position: absolute;
-	top: 0;
-	-moz-transition: height .2s;
-    -ms-transition: height .2s;
-    -o-transition: height .2s;
-    -webkit-transition: height .2s;
-    transition: height .2s;
-    height: 0;
-	opacity: 0;
-    visibility: hidden;
-	z-index: 1000;
-	overflow: hidden;
 }
 
 .massbank-sidebar .menu-item:HOVER .submenu-container {
-	opacity: 1;
-    visibility: visible;
-    height: 143px;
+    /*height: 143px;*/
 }
 
 .massbank-sidebar .menu-item {
@@ -127,7 +183,7 @@
 	display: inline-block;
 	padding-left: 45px;
 	white-space: nowrap;
-	width: 160px;
+	width: 150px;
 }
 
 /**
@@ -170,7 +226,6 @@
 	border-color: #fff;
 	border-style: solid;
 	border-width: 0 5px;
-	left: 224px;
 }
 
 .massbank-sidebar .submenu-item,
