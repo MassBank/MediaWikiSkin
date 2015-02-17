@@ -8,7 +8,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit( 1 ) ;
 }
  
-$wgExtensionCredits['other'][] = array(
+$wgExtensionCredits['skin'][] = array(
     'name' => 'massbanksidebar',
 	'version' => '0.0.1',
     'author' => '',

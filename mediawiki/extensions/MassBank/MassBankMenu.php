@@ -7,7 +7,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit( 1 ) ;
 }
 
-$wgExtensionCredits['other'][] = array(
+$wgExtensionCredits['skin'][] = array(
 		'name' => 'massbankmenu',
 		'version' => '0.0.1',
 		'author' => '',
@@ -35,8 +35,12 @@ function fnMassBankMenu($skin, &$tpl) {
 			$line = $lines[$i];
 			
 			if (strpos($line, '**') === 0 && $i > 0) {// entry in a deeper level:
+				$css_class = 'default-menu-container';
+				if (! empty($settings['type']) ) {
+					$css_class = $settings['type'] . '-menu-container';
+				} 
 				$content = '
-					<div id="massbank-' . $settings['id'] . '-menu" class="' . $settings['type'] . '-menu-container" >
+					<div id="massbank-' . $settings['id'] . '-menu" class="' . $css_class . '" >
 						<ul class="menu-container">
 							' . fnBuildMenuItemList($lines, $i, 1) . '
 						</ul>

@@ -1,8 +1,8 @@
 <?php
 
-$wgExtensionCredits['validextensionclass'][] = array(
+$wgExtensionCredits['skin'][] = array(
 		'path' => __FILE__,
-		'name' => 'MassBank',
+		'name' => 'massbank',
 		'author' => '',
 		'url' => '',
 		'description' => 'This extension is the combination of all massbank extentions',
@@ -13,7 +13,7 @@ $wgExtensionCredits['validextensionclass'][] = array(
 include_once 'MassBankMenu.php';
 include_once 'MassBankSideBar.php';
 
-function fnBuildMenuItemList($lines, &$i, $level, $opt) {
+function fnBuildMenuItemList($lines, &$i, $level, $opt = NULL) {
 	global $wgParser, $wgTitle, $wgParseListItems;
 	
 	$content = "";
