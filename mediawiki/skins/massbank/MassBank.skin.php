@@ -175,26 +175,12 @@ class MassBankTemplate extends BaseTemplate {
 	public function execute() {
 		$this->html( 'headelement' ) ?>
 		
-		<div id="header_top_container" class="mw-body-wrapper"></div>
-		
-		<div id="mw-top">
-			<div id="top-menu-container" class="navigation-bar mw-body-wrapper">
-				<?php
-					$this->outputPortletTopMenu( array(
-						'id' => 'p-function-menus',
-						'cssClass' => 'place-right',
-						'content' => $this->getMassBankMenuContent('top')
-					) );
-				?>
-				<br clear="all"/>
-			</div>
-			<div class="mw-body-wrapper">
-				<div id="p-home-menu" class="mw-portlet place-left">
-					<a href="<?php echo htmlspecialchars( $this->data['nav_urls']['mainpage']['href'] );?>">&nbsp;</a>
-				</div>
-				<br clear="all"/>
+		<div id="header_top_container" class="mw-body-wrapper">
+			<div id="p-home-menu">
+				<a href="<?php echo htmlspecialchars( $this->data['nav_urls']['mainpage']['href'] );?>">&nbsp;</a>
 			</div>
 		</div>
+		
 		<div id="mw-top-sub">
 			<div id="top-submenu-container" class="navigation-bar mw-body-wrapper">
 				<?php
@@ -306,8 +292,73 @@ class MassBankTemplate extends BaseTemplate {
 				?>
 			</div>
 
+			<?php
+			
+			//$footerlinks = array(
+			//	'lastmod', 'viewcount', 'numberofwatchingusers', 'credits', 'copyright',
+			//	'privacy', 'about', 'disclaimer', 'tagline',
+			//);
+			?>
 			<div id="mw-footer">
+				<div id="footer" role="contentinfo">
+					<ul id="footer-info">
+						<?php
+						foreach( array('lastmod', 'copyright') as $aLink ) {
+							if( isset( $this->data[$aLink] ) && $this->data[$aLink] ) {
+								?>
+								<li id="footer-info-<?php echo$aLink?>"><?php $this->html($aLink) ?></li>
+								<?php
+							}
+						}
+						?>
+					</ul>
+					
+					<ul id="footer-places">
+						<?php
+						foreach( array('privacy', 'about', 'disclaimer') as $aLink ) {
+							if( isset( $this->data[$aLink] ) && $this->data[$aLink] ) {
+								?>
+								<li id="footer-places-<?php echo$aLink?>"><?php $this->html($aLink) ?></li>
+								<?php
+							}
+						}
+						?>
+					</ul>
+					
+					<ul id="footer-icons" class="noprint">
+						<?php
+						
+						$wgFooterIcons = array(
+							"copyright" => array(
+								"copyright" => array(
+									"src" => "/mediawiki/resources/assets/licenses/cc-by.png", //"https://licensebuttons.net/l/by/3.0/88x31.png",
+									"url" => "https://creativecommons.org/licenses/by/4.0/",
+									"alt" => "Creative Commons Attribution License",
+								) // placeholder for the built in copyright icon
+							)
+						);
+						
+						foreach ( $wgFooterIcons as $blockName => $footerIcons ) {
+						?>
+							<div id="footer-<?php echo htmlspecialchars( $blockName ); ?>ico">
+								<?php 
+								foreach ( $footerIcons as $icon ) {
+									echo $this->getSkin()->makeFooterIcon( $icon );
+								}
+								?>
+							</div>
+						<?php
+						}
+						?>
+					</ul>
+					
+					<div style="clear:both"></div>
+				</div>
+			
 				<?php 
+				//print_r ($this->getFooterLinks());
+				//print_r ($this->data);
+
 // 				print_r($this->data['sidebar']);
 // 				if (isset($this->data['sidebar']['SEARCH'])) {
 // 					echo "search set";
@@ -320,9 +371,6 @@ class MassBankTemplate extends BaseTemplate {
 // 				print_r($this->getContext()->getLanguage());
 				?>
 				<div>
-					<div id="copyright" class="place-left">
-						Copyright © MassBank Project
-					</div>
 					<div class="place-right">
 						<?php
 						echo $this->getMassBankMenuContent('footer'); 

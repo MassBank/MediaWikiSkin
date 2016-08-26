@@ -20,18 +20,18 @@ $wgExtensionCredits['skin'][] = array(
 	'name' => 'MassBank',
 	'namemsg' => 'skinname-massbank',
 	'version' => '1.0',
-	'url' => '',
+	'url' => 'https://www.mediawiki.org/wiki/Skin:MassBank',
 	'author' => '...',
 	'descriptionmsg' => 'massbank-desc',
 	// When modifying this skin, remember to change the license information if you do not want to
 	// waive all of your rights to your work!
-	'license' => '',
+	'license' => 'CC0',
 );
 
 $wgValidSkinNames['massbank'] = 'MassBank';
 
 $wgAutoloadClasses['SkinMassBank'] = __DIR__ . '/MassBank.skin.php';
-//$wgMessagesDirs['MassBank'] = __DIR__ . '/i18n';
+$wgMessagesDirs['MassBank'] = __DIR__ . '/i18n';
 
 $wgResourceModules['skins.massbank.js'] = array(
 	'scripts' => array(

@@ -11,36 +11,47 @@ body {
 	padding: 0;
 }
 
+pre {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+/*
 #mw-top {
-	width: 100%;
+	width: 75rem;
 	position: absolute;
     top: 0;
 }
+*/
 
 #mw-wrapper {
 	position: relative;
-	margin-top: 15px;
+	margin-top: 1rem;
 }
 
 .mw-body-wrapper {
-	width: 70em;
+	width: 75rem;
 	margin: 0 auto;
 }
 
 .mw-body {
-	width: 48em;
-	padding: 6em 1em 1em 0;
+	width: 48rem;
+	padding: 6rem 1rem 1rem 0;
 	float: right;
 }
 
-#p-logo,
+/* #p-logo, */
 #mw-navigation {
-	width: 16em;
-	padding: 1em;
+	width: 16rem;
+	padding: 1rem;
 	clear: left;
 	float: left;
 }
 
+/*
 #p-logo {
 	text-align: center;
 }
@@ -49,9 +60,12 @@ body {
 	padding: 15px 0;
 	width: 100px;
 }
+*/
 
 #mw-top-sub {
 	background-color: #7D838F !important;
+	min-width: 75rem;
+	margin: 0 auto;
 }
 
 #mw-top-sub li a {
@@ -102,9 +116,9 @@ body {
 
 #p-search {
 	position: absolute;
-	top: 1em;
-	right: 1em;
-	width: 46em;
+	top: 1rem;
+	right: 1rem;
+	width: 46rem;
 	text-align: right;
 }
 
@@ -121,9 +135,11 @@ body {
 
 /* header */
 #p-home-menu {
-	height: 70px;
-	margin-left: 15px;
-	width: 255px;
+	width: 16rem;
+	top: 2rem;
+	left: 8rem;
+	position: absolute;
+	height: 5rem;
 }
 #p-home-menu a {
 	display: inline-block;
@@ -138,13 +154,31 @@ body {
 	clear: both;
 	font-size: 11px;
 	border-top: 1px solid #ddd;
-	margin-top: 1em;
-	padding: 1em;
+	margin-top: 1rem;
+	padding: 1rem;
 }
 
 #mw-footer #copyright {
 	color: #666;
     font-style: italic;
+}
+
+#mw-footer #footer #footer-places {
+	float: left;
+}
+
+#mw-footer #footer #footer-places li {
+	float: left;
+	margin-right: 1rem;
+	line-height: 2rem;
+}
+
+#mw-footer #footer #footer-icons {
+	float: right;
+}
+
+#mw-footer #footer #footer-icons #footer-poweredbyico {
+	display: none;
 }
 
 /* Hide some headings, but keep them accessible for screen-readers */
@@ -167,7 +201,7 @@ body {
 }
 
 #mw-navigation .mw-portlet[role="navigation"] ul {
-	font-size: 0.9em;
+	font-size: 0.9rem;
 }
 
 #header_top_container {
@@ -175,7 +209,8 @@ body {
 	background-position: center top;
 	background-repeat: no-repeat;
 	height: 125px;
-	width: 100%;
+	width: 75rem;
+	position: relative;
 }
 
 /* dropdown menu */
@@ -213,7 +248,7 @@ ul.mw-dropdown-portlet li a.dropdown-menu-title:after {
     border-style: solid;
     border-width: 5px 0 5px 5px;
     border-left-color: #ccc;
-    margin-top: 1em;
+    margin-top: 1rem;
     margin-right: 5px;
 }
 
