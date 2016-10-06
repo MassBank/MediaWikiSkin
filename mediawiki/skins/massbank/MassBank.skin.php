@@ -326,30 +326,15 @@ class MassBankTemplate extends BaseTemplate {
 					</ul>
 					
 					<ul id="footer-icons" class="noprint">
-						<?php
-						
-						$wgFooterIcons = array(
-							"copyright" => array(
-								"copyright" => array(
-									"src" => "/mediawiki/resources/assets/licenses/cc-by.png", //"https://licensebuttons.net/l/by/3.0/88x31.png",
-									"url" => "https://creativecommons.org/licenses/by/4.0/",
-									"alt" => "Creative Commons Attribution License",
-								) // placeholder for the built in copyright icon
-							)
-						);
-						
-						foreach ( $wgFooterIcons as $blockName => $footerIcons ) {
-						?>
-							<div id="footer-<?php echo htmlspecialchars( $blockName ); ?>ico">
-								<?php 
+						<?php foreach ( $this->getFooterIcons( 'icononly' ) as $blockName => $footerIcons ) { ?>
+							<li id="footer-<?php echo htmlspecialchars( $blockName ); ?>ico">
+								<?php
 								foreach ( $footerIcons as $icon ) {
 									echo $this->getSkin()->makeFooterIcon( $icon );
 								}
 								?>
-							</div>
-						<?php
-						}
-						?>
+							</li>
+						<?php } ?>
 					</ul>
 					
 					<div style="clear:both"></div>
