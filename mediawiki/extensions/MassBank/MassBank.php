@@ -1,8 +1,8 @@
 <?php
 
-$wgExtensionCredits['skin'][] = array(
+$wgExtensionCredits['validextensionclass'][] = array(
 		'path' => __FILE__,
-		'name' => 'massbank',
+		'name' => 'MassBank',
 		'author' => '',
 		'url' => '',
 		'description' => 'This extension is the combination of all massbank extentions',
@@ -13,7 +13,7 @@ $wgExtensionCredits['skin'][] = array(
 include_once 'MassBankMenu.php';
 include_once 'MassBankSideBar.php';
 
-function fnBuildMenuItemList($lines, &$i, $level, $opt = NULL) {
+function fnBuildMenuItemList($lines, &$i, $level, $opt) {
 	global $wgParser, $wgTitle, $wgParseListItems;
 	
 	$content = "";
@@ -30,8 +30,8 @@ function fnBuildMenuItemList($lines, &$i, $level, $opt = NULL) {
 		$line = fnBuildMenuItemExpr($line);
 		//   		$class = "item{$itemCount} level{$level}";
 
-		if ($level == 2) { // nested menu case
-			$class = 'submenu-item';
+		if ($level > 1) { // nested menu case
+			$class = 'submenu' . $level . '-item submenu-item';
 		} else {
 			$class = 'menu-item';
 		}
@@ -48,7 +48,7 @@ function fnBuildMenuItemList($lines, &$i, $level, $opt = NULL) {
 			}
 
 			$content .= '
-				<ul class="submenu-container">
+				<ul class="submenu' . $level . '-container submenu-container">
 					' . fnBuildMenuItemList($lines, $i, $level+1, $opt) . '
 				</ul>
 				';
