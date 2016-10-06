@@ -58,9 +58,10 @@
     float: right;
 }
 
-.skin-massbank textarea,
-.skin-massbank input.mw-summary,
-.skin-massbank input[type="text"],
+.skin-massbank textarea, 
+.skin-massbank select,
+.skin-massbank input.mw-summary, 
+.skin-massbank input[type="text"], 
 .skin-massbank input[type="search"] {
 	border: 1px solid #d9d9d9;
 	padding: 0.7em;
@@ -77,6 +78,22 @@
 
 .skin-massbank .bg-dark {
     background-color: #333333 !important;
+}
+
+/**
+ * wikitable
+ */
+.page-Category_Search div#result .wikitable th {
+    white-space: nowrap;
+}
+.page-Category_Search div#result .wikitable input[name="showIDs"] {
+    margin: 0 1.25rem;
+}
+
+.page-Category_Search table.wikitable,
+.page-Index_About table.wikitable,
+.page-Instrument_List table.wikitable {
+	width: 100%;
 }
 
 /**
