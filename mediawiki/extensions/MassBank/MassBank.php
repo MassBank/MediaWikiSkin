@@ -6,7 +6,7 @@ $wgExtensionCredits['validextensionclass'][] = array(
 		'author' => '',
 		'url' => '',
 		'description' => 'This extension is the combination of all massbank extentions',
-		'version'  => '1.0.0',
+		'version'  => '1.0.1',
 		'license-name' => ""
 );
 
@@ -19,7 +19,7 @@ function fnBuildMenuItemList($lines, &$i, $level, $opt) {
 	$content = "";
 	$closeLI = false;
 	$itemCount = 0;
-
+	
 	for (;$i < sizeof($lines); $i++) {
 		$itemCount++;
 
@@ -37,9 +37,9 @@ function fnBuildMenuItemList($lines, &$i, $level, $opt) {
 		}
 
 		$class .= ' menu-' . fnBuildMenuItemCssClass($line); // append menu css class by menu path
-
+		
 		$class .= ($itemCount % 2 == 0 ? " even" : " odd");
-
+		
 		if (strpos($line, '**') === 0) {// entry in a deeper level:
 			// inject a &gt; at the end of the line
 			$content = rtrim($content);
@@ -60,18 +60,22 @@ function fnBuildMenuItemList($lines, &$i, $level, $opt) {
 				$content .= "</li>";
 				$closeLI = false;
 			}
-				
+			
 			if (strpos($line, '|') !== false) {
 				$line = array_map('trim', explode( '|' , trim($line, '* '), 2) );
-				$link = wfMsgForContent( $line[0] );
-				if ($link == '-')
+				
+				$link = ( function_exists("wfMsgForContent") ) ? wfMsgForContent( $line[0] ): wfMessage( $line[0] );
+				if ($link == '-') {
 					continue;
+				}
 
-				$text = wfMsgExt($line[1], 'parsemag');
-				if (wfEmptyMsg($line[1], $text))
+				$text = ( function_exists("wfMsgExt") ) ? wfMsgExt($line[1], 'parsemag'): wfMessage($line[1], 'parsemag'); // v1.27
+				if (function_exists("wfEmptyMsg") ? wfEmptyMsg($line[1], $text): wfMessage($line[1], $text)) {
 					$text = $line[1];
-				if (wfEmptyMsg($line[0], $link))
+				}
+				if (function_exists("wfEmptyMsg") ? wfEmptyMsg($line[0], $link): wfMessage($line[1], $link))  {
 					$link = $line[0];
+				}
 
 				if ( preg_match( '/^(?:' . wfUrlProtocols() . ')/', $link ) ) {
 					$href = $link;
@@ -96,7 +100,7 @@ function fnBuildMenuItemList($lines, &$i, $level, $opt) {
 					$class = " separator";
 					$text = "";
 				}
-
+				
 				$text = htmlspecialchars( trim($line, '* '));
 				$text = fnBuildMenuItemIcon($text); // replace icon notation to icon image tag
 				$text = fnBuildMenuItemWrapText($text);

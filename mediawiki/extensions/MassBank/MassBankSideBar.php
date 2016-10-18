@@ -10,7 +10,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
  
 $wgExtensionCredits['skin'][] = array(
     'name' => 'massbanksidebar',
-	'version' => '0.0.1',
+	'version' => '0.0.2',
     'author' => '',
     'description' => 'Sidebar can be displayed as a Menu',
 	'url'     => '',
@@ -27,8 +27,10 @@ function fnMassBankSidebar($skin, &$bar) {
 	/** Use the revision directly to prevent other hooks to be called */
 	$rev = Revision::newFromTitle( $title );
  
-	if ($rev)
-		$lines = explode("\n", $rev->getRawText());
+	$lines = NULL;
+	if ( $rev ) {
+		$lines = explode("\n", function_exists( "getRawText" )? $rev->getRawText(): $rev->getText( Revision::RAW ));
+	}
  
 	if ($lines && count($lines) > 0) {
  
@@ -53,9 +55,6 @@ function fnMassBankSidebar($skin, &$bar) {
 			}	
 		}
 	}
-	
-// 	$lines2 = explode( "\n", wfMsgForContent( 'massbanksidebar' ) );
-// 	print_r($lines2);
 	
 	return true;
 }

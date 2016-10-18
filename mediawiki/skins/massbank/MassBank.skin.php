@@ -56,7 +56,9 @@ class MassBankTemplate extends BaseTemplate {
 	
 		if ( isset( $group ) ) {
 			$group = $wgContLang->lc( $group );
-			return $this->data['mbmenulinks'][$group]['content'];
+			if ( isset( $this->data['mbmenulinks'] ) ) {
+				return $this->data['mbmenulinks'][$group]['content'];
+			}
 		}
 	
 		return '';

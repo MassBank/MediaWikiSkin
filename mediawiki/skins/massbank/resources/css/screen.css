@@ -30,7 +30,90 @@
 		margin-left:1.6em;
 		margin-bottom:.1em
 	}
-}
+
+	/* toc */
+	#toc {
+		margin: 1em 0
+	}
+	#toc ul, .toc ul {
+		margin: .3em 0
+	}
+	.mw-content-ltr .toc ul, .mw-content-ltr #toc ul, .mw-content-rtl .mw-content-ltr .toc ul,
+		.mw-content-rtl .mw-content-ltr #toc ul {
+		text-align: left
+	}
+	.mw-content-rtl .toc ul, .mw-content-rtl #toc ul, .mw-content-ltr .mw-content-rtl .toc ul,
+		.mw-content-ltr .mw-content-rtl #toc ul {
+		text-align: right
+	}
+	.mw-content-ltr .toc ul ul, .mw-content-ltr #toc ul ul, .mw-content-rtl .mw-content-ltr .toc ul ul,
+		.mw-content-rtl .mw-content-ltr #toc ul ul {
+		margin: 0 0 0 2em
+	}
+	.mw-content-rtl .toc ul ul, .mw-content-rtl #toc ul ul, .mw-content-ltr .mw-content-rtl .toc ul ul,
+		.mw-content-ltr .mw-content-rtl #toc ul ul {
+		margin: 0 2em 0 0
+	}
+	#toc #toctitle, .toc #toctitle, #toc .toctitle, .toc .toctitle {
+		direction: ltr
+	}
+	#toc, .toc, .mw-warning, .toccolours {
+		border: 1px solid #aaa;
+		background-color: #f9f9f9;
+		padding: 5px;
+		font-size: 95%
+	}
+	#toc, .toc {
+		display: inline-block;
+		zoom: 1;
+		padding: 7px
+	}
+	table#toc, table.toc {
+		border-collapse: collapse
+	}
+	table#toc td, table.toc td {
+		padding: 0
+	}
+	#toc h2, .toc h2 {
+		display: inline;
+		border: none;
+		padding: 0;
+		font-size: 100%;
+		font-weight: bold
+	}
+	#toc #toctitle, .toc #toctitle, #toc .toctitle, .toc .toctitle {
+		text-align: center
+	}
+	#toc ul, .toc ul {
+		list-style-type: none;
+		list-style-image: none;
+		margin-left: 0;
+		padding: 0;
+		text-align: left
+	}
+	#toc ul ul, .toc ul ul {
+		margin: 0 0 0 2em
+	}
+	.tocnumber, .toctext {
+		display: table-cell;
+		text-decoration: inherit
+	}
+	.tocnumber {
+		padding-left: 0;
+		padding-right: 0.5em
+	}
+	.mw-content-ltr .tocnumber {
+		padding-left: 0;
+		padding-right: 0.5em
+	}
+	.mw-content-rtl .tocnumber {
+		padding-left: 0.5em;
+		padding-right: 0
+	}
+	.mw-body #toc h2, .mw-body .toc h2 {
+		font-size: 100%;
+		font-family: sans-serif
+	}}
 
 @media screen {
 	.mw-body ul {
@@ -148,6 +231,10 @@ pre {
 #top-submenu-container ul.h-menu li a.dropdown-menu-title:after {
 	border-color: #ccc transparent;
     border-width: 5px 5px 0;
+}
+
+#top-submenu-container ul.h-menu li:hover ul {
+    background: #636872 !important;
 }
 
 /* Search form and personal menu in top-right corner */

@@ -9,7 +9,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 $wgExtensionCredits['skin'][] = array(
 		'name' => 'massbankmenu',
-		'version' => '0.0.1',
+		'version' => '0.0.2',
 		'author' => '',
 		'description' => 'additional links can be displayed as a Menu',
 		'url'     => '',
@@ -26,8 +26,9 @@ function fnMassBankMenu($skin, &$tpl) {
 	/** Use the revision directly to prevent other hooks to be called */
 	$rev = Revision::newFromTitle( $title );
 	
+	$lines = NULL;
 	if ($rev) {
-		$lines = explode("\n", $rev->getRawText());
+		$lines = explode("\n", function_exists( "getRawText" )? $rev->getRawText(): $rev->getText( Revision::RAW ));
 	}
 	
 	if ($lines && count($lines) > 0) {
@@ -51,8 +52,6 @@ function fnMassBankMenu($skin, &$tpl) {
 			}
 			else { // use Entry as Title:
 				$settings = fnBuildMenuSettings( $wgContLang->lc( trim($line, '* ') ) );
-// 				$key = $wgContLang->lc( trim($line, '* ') );
-// 				$key = strtolower(trim($line, '* '));
 			}	
 		}
 		
@@ -74,7 +73,6 @@ function fnBuildMenuSettings($line) {
 			}
 		}
 	}
-// 	print_r($result);
 	return $result;
 }
 
